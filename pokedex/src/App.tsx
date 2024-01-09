@@ -18,7 +18,7 @@ const App: React.FC = () => {
   };
 
   const capturePokemon = () => {
-    if (pokemonData) {
+    if (pokemonData && Math.random() < 0.1) {
       setCapturedPokemons((prevPokemons) => [...prevPokemons, pokemonData.name]);
     }
   };
@@ -30,7 +30,7 @@ const App: React.FC = () => {
       {pokemonData && <PokemonDetails pokemon={pokemonData} />}
       {pokemonData && (
         <button onClick={capturePokemon} className="mt-4 bg-green-500 text-white px-4 py-2 rounded">
-          Capture Pokémon
+          Capture Pokémon (10% chance)
         </button>
       )}
       {capturedPokemons.length > 0 && (
